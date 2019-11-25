@@ -745,7 +745,7 @@ Resources:
         LikeServiceName: !Sub ${AWS::StackName}_Like-Service
         CfnStackName: !Sub ${AWS::StackName}
 
-    MultiRegionCwDashboard:
+   MultiRegionCwDashboard:
     Type: AWS::CloudFormation::Stack
     DependsOn: MythicalCiCdStack
     Condition: NotDrRegion
@@ -758,6 +758,7 @@ Resources:
         LikeServiceName: !Sub ${AWS::StackName}_Like-Service
         PrimaryRegionALBFullName: !GetAtt MythicalLoadBalancer.LoadBalancerFullName
         DDBTable: !Ref DDBTableName
+        CfnStackName: !Sub ${AWS::StackName}
 
   # Working on a function to delete all extra stuff - disregard for now
   CleanDeletionCustomResource:
